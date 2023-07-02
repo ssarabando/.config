@@ -27,6 +27,9 @@ Installed with `winget`:
 Installed with `winget`:
 >    `winget install GoLang.Go`
 
+Also, install `goimports`:
+>    `go install golang.org/x/tools/cmd/goimports@latest`
+
 ### ripgrep
 
 Go to BurntSushi's GitHub repository [here](https://github.com/BurntSushi/ripgrep#installation) and follow the instructions.

@@ -120,7 +120,10 @@ return require("packer").startup(function(use)
         "williamboman/mason.nvim",                      -- Package manager for LSP, DAP, linters, etc.
         config = function()
             require("mason").setup({
-                ensure_installed = { "gopls" }          -- GO LSP
+                ensure_installed = {
+                    "goimports",                        -- GO: adds missing imports
+                    "gopls"                             -- GO LSP
+                },
             })
         end,
         run = ":MasonUpdate",

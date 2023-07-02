@@ -106,6 +106,12 @@ return require("packer").startup(function(use)
                     "~/Dropbox/sergio/org/*",
                 },
                 org_default_notes_file = "~/Dropbox/sergio/org/refile.org",
+                org_todo_keywords = {
+                    'TODO(t)',
+                    '|',
+                    'DONE',
+                    'CANCELLED'
+                }
             })
         end,
     }

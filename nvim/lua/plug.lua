@@ -4,7 +4,7 @@
 vim.cmd([[
     augroup packer_user_config
         autocmd!
-        autocmd BufWritePost lua/plug.lua source <afile> | PackerSync
+        autocmd BufWritePost plug.lua source <afile> | PackerSync
     augroup end
 ]])
 
@@ -39,7 +39,6 @@ return require("packer").startup(function(use)
         "nvim-lualine/lualine.nvim",                    -- Status line
         requires = {
             "nvim-tree/nvim-web-devicons",              -- Icons for the tree
-            opt = true
         },
         config = function()
             require("lualine").setup()
@@ -70,7 +69,6 @@ return require("packer").startup(function(use)
         "nvim-tree/nvim-tree.lua",                      -- File explorer
         requires = {
             "nvim-tree/nvim-web-devicons",              -- Icons for the tree
-            opt = true
         },
         config = function()
             require('nvim-tree').setup()

@@ -101,9 +101,9 @@ return require("packer").startup(function(use)
             require("orgmode").setup_ts_grammar()
             require("orgmode").setup({
                 org_agenda_files = {
-                    "~/Dropbox/sergio/org/*",
+                    "~/Documents/org/*",
                 },
-                org_default_notes_file = "~/Dropbox/sergio/org/refile.org",
+                org_default_notes_file = "~/Documents/org/refile.org",
                 org_todo_keywords = {
                     'TODO(t)',
                     '|',

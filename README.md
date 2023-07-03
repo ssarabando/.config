@@ -1,4 +1,5 @@
 # .config
+
 Configuration files for neovim (Windows/pwsh)
 
 ## Requirements
@@ -43,4 +44,5 @@ Go [here](https://www.rust-lang.org/tools/install) and follow the instructions.
 - Run under a developer PowerShell environment so that TreeSitter can do its thing properly.
 - Currently have a problem when running this for the 1st time (Neovim 0.9.1): Mason will always fail to install.
 The workaround is to call `:PackerSync` after Packer finishes installing all plugins.
+- Symlink the org real directory (in Dropbox, for example) to `~/Documents/org/`.
 

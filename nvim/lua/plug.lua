@@ -362,6 +362,16 @@ return require("packer").startup(function(use)
         end,
     }
 
+    use {
+        "nvim-treesitter/nvim-treesitter-context",
+        requires = {
+            "nvim-treesitter/nvim-treesitter",
+        },
+        config = function()
+            require("treesitter-context").setup()
+        end,
+    }
+
     use { 
         "theHamsta/nvim-dap-virtual-text",              -- See variable values as virtual text when debugging.
         requires = {

@@ -15,6 +15,8 @@ map('n', "<leader>ff", ":Telescope find_files<CR>", {})
 map('n', "<leader>fg", ":Telescope live_grep<CR>", {})
 map('n', "<leader>fb", ":Telescope buffers<CR>", {})
 map('n', "<leader>fh", ":Telescope help_tags<CR>", {})
+map('n', "<leader>fd", ":Telescope lsp_definitions<CR>", {})
+map('n', "<leader>fr", ":Telescope lsp_references<CR>", {})
 
 -- FILE EXPLORER: nvim-tree
 -- synch tree to file (and opens tree if hidden)

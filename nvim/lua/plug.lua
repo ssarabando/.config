@@ -187,20 +187,20 @@ return require("packer").startup(function(use)
             require("mason-lspconfig").setup()
         end,
     }
-
-    use {
-        "jose-elias-alvarez/null-ls.nvim",              -- Use NeoVim as a language server
-        requires = { { "nvim-lua/plenary.nvim" } },     -- Library of utility functions
-        config = function()
-            local null_ls = require("null-ls")
-            null_ls.setup({
-                sources = {
-                    null_ls.builtins.formatting.gofmt,
-                    null_ls.builtins.formatting.goimports,
-                },
-           })
-        end
-    }
+    --
+    -- use {
+    --     "jose-elias-alvarez/null-ls.nvim",              -- Use NeoVim as a language server
+    --     requires = { { "nvim-lua/plenary.nvim" } },     -- Library of utility functions
+    --     config = function()
+    --         local null_ls = require("null-ls")
+    --         null_ls.setup({
+    --             sources = {
+    --                 null_ls.builtins.formatting.gofmt,
+    --                 null_ls.builtins.formatting.goimports,
+    --             },
+    --        })
+    --     end
+    -- }
 
     use {
         "simrat39/rust-tools.nvim",                     -- Rust tools; also sets LSP for it

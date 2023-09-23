@@ -20,9 +20,9 @@ local map = vim.api.nvim_set_keymap
 
 -- FILE EXPLORER: nvim-tree
 -- synch tree to file (and opens tree if hidden)
--- map('n', "<leader>st", ":NvimTreeFindFile<CR>", {})
+map('n', "<leader>st", ":NvimTreeFindFile<CR>", {})
 -- close tree
--- map('n', "<leader>ct", ":NvimTreeClose<CR>", {})
+map('n', "<leader>ct", ":NvimTreeClose<CR>", {})
 
 -- CTAGS VIEWER: tagbar
 -- show classes

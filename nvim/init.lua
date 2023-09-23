@@ -4,7 +4,6 @@
 require('vars') -- Variables
 require('opts') -- Options
 require('keys') -- Keymaps
-require('plug') -- Plugins
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then

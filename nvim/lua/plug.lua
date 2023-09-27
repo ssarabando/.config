@@ -1,7 +1,8 @@
 --     -- [[ DEV ]]
 -- 
 --     use {
---         "williamboman/mason.nvim",                      -- Package manager for LSP, DAP, linters, etc.
+--         -- Package manager for LSP, DAP, linters, etc.
+--         "williamboman/mason.nvim",
 --         config = function()
 --             require("mason").setup({
 --                 ensure_installed = {
@@ -14,7 +15,8 @@
 --     }
 -- 
 --     use {
---         "neovim/nvim-lspconfig",                        -- Configs for the LSP
+--         -- Configs for the LSP
+--         "neovim/nvim-lspconfig",
 --         config = function()
 --             local lspconfig = require "lspconfig"
 --             local util = require "lspconfig/util"
@@ -279,16 +281,6 @@
 --     }
 -- 
 --     use "preservim/tagbar"                              -- Class/file outliner
--- 
---     use {
---         "folke/trouble.nvim",                           -- Pretty list for showing diagnostics, etc.
---         requires = {
---             "nvim-tree/nvim-web-devicons"
---         },
---         config = function()
---             require("trouble").setup()
---         end,
---     }
 -- 
 --     use {
 --         "folke/todo-comments.nvim",                     -- Highlight TODO comments, etc.

@@ -44,4 +44,11 @@ return {
         config = true,
         lazy = false,
     },
+    -- Autopair plugin
+    -- https://github.com/windwp/nvim-autopairs
+    {
+        "windwp/nvim-autopairs",
+        event = "InsertEnter",
+        opts = {},
+    },
 }

@@ -1,14 +1,24 @@
 return {
-    -- Vim plugin for Git
+    -- Git plugin
     -- https://github.com/tpope/vim-fugitive
     "tpope/vim-fugitive",
     -- https://github.com/tpope/vim-surround
     "tpope/vim-surround",
     -- Git decorations
     -- https://github.com/lewis6991/gitsigns.nvim
-    "lewis6991/gitsigns.nvim",
+    {
+        "lewis6991/gitsigns.nvim",
+        config = true,
+        lazy = false,
+    },
     -- Git commit history
-    "junegunn/gv.vim",
+    -- https://github.com/junegunn/gv.vim
+    {
+        "junegunn/gv.vim",
+        dependencies = {
+            "tpope/vim-fugitive",
+        },
+    },
     -- LSP configuration
     {
         "neovim/nvim-lspconfig",

@@ -1,8 +1,5 @@
 --     -- [[ DEV ]]
 -- 
---     use "lewis6991/gitsigns.nvim"                       -- Git decorations
---     use "junegunn/gv.vim"                               -- Git commit history
--- 
 --     use {
 --         "williamboman/mason.nvim",                      -- Package manager for LSP, DAP, linters, etc.
 --         config = function()

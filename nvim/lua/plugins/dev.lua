@@ -5,7 +5,7 @@ return {
     "lewis6991/gitsigns.nvim",
     -- Git commit history
     "junegunn/gv.vim",
-    -- Pretty list for showing diagnostics, etc.
+    -- LSP configuration
     {
         "neovim/nvim-lspconfig",
         config = function()
@@ -16,6 +16,7 @@ return {
             "nvim-lua/completion-nvim",
         },
     },
+    -- Pretty list for showing diagnostics, etc.
     {
         "folke/trouble.nvim",
         dependencies = {

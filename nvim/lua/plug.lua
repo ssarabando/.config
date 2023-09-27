@@ -1,6 +1,5 @@
 --     -- [[ DEV ]]
 -- 
---     use "tpope/vim-fugitive"                            -- Git integration
 --     use "lewis6991/gitsigns.nvim"                       -- Git decorations
 --     use "junegunn/gv.vim"                               -- Git commit history
 -- 

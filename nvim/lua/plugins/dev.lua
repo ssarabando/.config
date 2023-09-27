@@ -5,6 +5,7 @@ return {
     "lewis6991/gitsigns.nvim",
     -- Git commit history
     "junegunn/gv.vim",
+    -- Pretty list for showing diagnostics, etc.
     {
         "neovim/nvim-lspconfig",
         config = function()

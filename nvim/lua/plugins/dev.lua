@@ -23,4 +23,11 @@ return {
             "nvim-tree/nvim-web-devicons",
         },
     },
+    -- Commenting
+    -- https://github.com/numToStr/Comment.nvim
+    {
+        "numToStr/Comment.nvim",
+        config = true,
+        lazy = false,
+    },
 }

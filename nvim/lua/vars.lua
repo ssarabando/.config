@@ -10,5 +10,5 @@ g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 
 -- Set leader/local leader keys
-g.mapleader = ","
+g.mapleader = " "
 g.localleader = "\\"

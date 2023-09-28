@@ -10,12 +10,6 @@ map('n', "<leader>fh", ":Telescope help_tags<CR>", {})
 map('n', "<leader>fd", ":Telescope lsp_definitions<CR>", {})
 map('n', "<leader>fr", ":Telescope lsp_references<CR>", {})
 
--- FILE EXPLORER: nvim-tree
--- synch tree to file (and opens tree if hidden)
-map('n', "<leader>st", ":NvimTreeFindFile<CR>", {})
--- close tree
-map('n', "<leader>ct", ":NvimTreeClose<CR>", {})
-
 -- CTAGS VIEWER: tagbar
 -- show classes
 -- map('n', "<leader>sc", ":TagbarToggle<CR>", {})

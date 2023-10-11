@@ -22,12 +22,16 @@ return {
     -- LSP configuration
     {
         "neovim/nvim-lspconfig",
-        config = function()
+        config = function(_, opts)
             require'lspconfig'.zls.setup{}
         end,
+        event = {
+            "BufReadPre",
+            "BufNewFile",
+        },
         dependencies = {
             "ziglang/zig.vim",
-            -- "nvim-lua/completion-nvim",
+            "nvim-lua/completion-nvim",
         },
     },
     -- Pretty list for showing diagnostics, etc.

@@ -18,8 +18,6 @@ opt.fileencoding = 'utf8'        -- str:  File encoding to use
 -- [[ Theme ]]
 opt.syntax = "ON"                -- str:  Allow syntax highlighting
 opt.termguicolors = true         -- bool: If term supports ui color then enable
--- Neovim Qt font
-cmd('set guifont="JetBrainsMono Nerd Font:h11:w81"')
 
 -- [[ Search ]]
 opt.ignorecase = true            -- bool: Ignore case in search patterns
@@ -58,10 +56,6 @@ vim.cmd([[
 ]])
 
 -- [[ Plugins ]]
-
--- Treesitter folding
--- vim.wo.foldmethod = 'expr'
--- vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
 
 -- Vimspector options
 -- vim.cmd([[

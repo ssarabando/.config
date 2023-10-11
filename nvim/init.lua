@@ -3,7 +3,6 @@
 -- IMPORTS
 require('vars') -- Variables
 require('opts') -- Options
-require('keys') -- Keymaps
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -19,6 +18,9 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
+
+-- Keymaps
+require('keys')
 
 -- LSP Diagnostics Options Setup 
 -- local sign = function(opts)

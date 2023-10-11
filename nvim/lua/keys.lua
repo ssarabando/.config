@@ -25,8 +25,8 @@ wk.register({
         },
         l = {
             name = "LSP",
-            d = { "<cmd>Telescope lsp_definitions<cr>", "Goto definition" },
-            r = { "<cmd>Telescope lsp_references<cr>", "List/goto references" },
+            d = { "<cmd>Telescope lsp_definitions<cr>", "Goto word definition" },
+            r = { "<cmd>Telescope lsp_references<cr>", "List/goto word references" },
         },
     },
 })
@@ -57,42 +57,28 @@ vim.api.nvim_create_autocmd('LspAttach', {
         -- Buffer local mappings.
         -- See `:help vim.lsp.*` for documentation on any of the below functions
         local opts = { buffer = ev.buf }
+        -- Normal mode keybinds.
         wk.register({
             ["<leader>l"] = {
+                ["."] = { vim.lsp.buf.code_action, "Code actions", buffer = ev.buf },
+                d = { vim.lsp.buf.definition, "Goto symbol definition", buffer = ev.buf },
+                D = { vim.lsp.buf.declaration, "Goto declaration", buffer = ev.buf },
+                f = { function() vim.lsp.buf.format { async = true } end, "Format buffer", buffer = ev.buf },
+                h = { vim.lsp.buf.hover, "Show information about symbol", buffer = ev.buf },
                 i = { vim.lsp.buf.implementation, "Goto implementation", buffer = ev.buf },
+                r = { vim.lsp.buf.references, "List/goto symbol references" , buffer = ev.buf },
+                R = { vim.lsp.buf.rename, "Rename" , buffer = ev.buf },
+                s = { vim.lsp.buf.signature_help, "Show signature help", buffer = ev.buf },
+                t = { vim.lsp.buf.type_definition, "Goto type definition", buffer = ev.buf },
             },
         })
-        vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, {
-            buffer = ev.buf,
-            desc = "Jumps to the declaration of the symbol under the cursor."
-        })
-        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {
-            buffer = ev.buf,
-            desc = "Jumps to the definition of the symbol under the cursor."
-        })
-        vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-        vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-        vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
-        vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
-        vim.keymap.set('n', '<space>wl', function()
-          print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-        end, opts)
-        vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
-        vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
-        vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
-        vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-        vim.keymap.set('n', '<space>f', function()
-          vim.lsp.buf.format { async = true }
-        end, opts)
+        -- Visual mode keybinds.
+        wk.register({
+            ["<leader>l"] = {
+                ["."] = { vim.lsp.buf.code_action, "Code actions", buffer = ev.buf },
+            },
+        }, { mode = "v" })
+        -- vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
+        -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
     end,
 })
-
--- CTAGS VIEWER: tagbar
--- show classes
--- map('n', "<leader>sc", ":TagbarToggle<CR>", {})
-
--- numToStr Comment plugin default keybindings
--- [count]gcc|gc[count]{motion}: line comment
--- gc: line comment (VISUAL mode)
--- [count]gbc|gb[count]{motion}: block comment
--- gb: block comment (VISUAL mode)

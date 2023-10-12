@@ -21,6 +21,7 @@ wk.register({
             f = { "<cmd>Telescope find_files<cr>", "Find files" },
             g = { "<cmd>Telescope live_grep<cr>", "Live GREP" },
             h = { "<cmd>Telescope help_tags<cr>", "Help tags" },
+            p = { "<cmd>lcd %:p:h<cr>", "Set local directory to the file's" },
             r = { "<cmd>Telescope oldfiles<cr>", "Recent files" },
         },
         l = {
@@ -44,8 +45,6 @@ wk.register({
     ["<c-j>"] = { "<esc><cmd>m '>+1<CR>gv=gv", "Move current line down." },
     ["<c-k>"] = { "<esc><cmd>m '<-2<CR>gv=gv", "Move current line up." },
 }, { mode = "v" })
-
-local map = vim.api.nvim_set_keymap
 
 -- LSP
 vim.api.nvim_create_autocmd('LspAttach', {
@@ -78,7 +77,5 @@ vim.api.nvim_create_autocmd('LspAttach', {
                 ["."] = { vim.lsp.buf.code_action, "Code actions", buffer = ev.buf },
             },
         }, { mode = "v" })
-        -- vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
-        -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
     end,
 })

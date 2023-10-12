@@ -19,11 +19,59 @@ return {
             "tpope/vim-fugitive",
         },
     },
+    -- Snippets
+    { "hrsh7th/cmp-vsnip" },
+    { "hrsh7th/vim-vsnip" },
+    -- Completion
+    {
+        -- Autocompletion plugin
+        "hrsh7th/nvim-cmp",
+        config = function()
+            local cmp = require("cmp")
+            cmp.setup({
+                snippet = {
+                    expand = function(args)
+                        vim.fn["vsnip#anonymous"](args.body)
+                    end,
+                },
+                window = {
+                    completion = cmp.config.window.bordered,
+                    documentation = cmp.config.window.bordered,
+                },
+            })
+            local capabilities = require("cmp_nvim_lsp").default_capabilities()
+            local lspconfig = require("lspconfig")
+            local servers = { "zls" }
+            for _, lsp in ipairs(servers) do
+                lspconfig[lsp].setup {
+                    capabilities = capabilities
+                }
+            end
+        end,
+        dependencies = {
+            "hrsh7th/cmp-vsnip",
+            "hrsh7th/vim-vsnip",
+        },
+    },
+    {
+        -- LSP source for nvim-cmp
+        "hrsh7th/cmp-nvim-lsp",
+        dependencies = {
+            "hrsh7th/nvim-cmp",
+            "neovim/nvim-lspconfig",
+        },
+    },
     -- LSP configuration
     {
         "neovim/nvim-lspconfig",
         config = function(_, opts)
-            require'lspconfig'.zls.setup{}
+            require("lspconfig").zls.setup {
+                -- on_attach = require("completion").on_attach
+                -- on_attach = function(_, bufnr)
+                --     vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+                --     require("completion").on_attach()
+                -- end
+            }
         end,
         event = {
             "BufReadPre",
@@ -31,7 +79,6 @@ return {
         },
         dependencies = {
             "ziglang/zig.vim",
-            "nvim-lua/completion-nvim",
         },
     },
     -- Pretty list for showing diagnostics, etc.

@@ -8,6 +8,9 @@ wk.register({
     ["<c-j>"] = { "<cmd>m .+1<cr>==", "Move current line down." },
     ["<c-k>"] = { "<cmd>m .-2<CR>==", "Move current line up." },
     ["<leader>"] = {
+        ["<space>"] = {
+            name = "commands",
+        },
         d = {
             name = "diagnostics",
             l = { vim.diagnostic.setloclist, "Add to the location list" },

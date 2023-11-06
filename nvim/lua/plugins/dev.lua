@@ -34,6 +34,32 @@ return {
                         vim.fn["vsnip#anonymous"](args.body)
                     end,
                 },
+                mapping = cmp.mapping.preset.insert({
+                    ["<cr>"] = cmp.mapping.confirm({
+                        behavior = cmp.ConfirmBehavior.Replace,
+                        select = true,
+                    }),
+                    ["<c-space>"] = cmp.mapping.complete(),
+                    ["<tab>"] = cmp.mapping(function(fallback)
+                        if cmp.visible() then
+                            cmp.select_next_item()
+                        else
+                            fallback()
+                        end
+                    end, { "i", "s" }),
+                    ["<s-tab>"] = cmp.mapping(function(fallback)
+                        if cmp.visible() then
+                            cmp.select_prev_item()
+                        else
+                            fallback()
+                        end
+                    end, { "i", "s" }),
+                }),
+                sources = cmp.config.sources({
+                    -- TODO: this throws an error when writing code
+                    -- { name = "nvim_lsp" },
+                    { name = "vsnip" },
+                }),
                 window = {
                     completion = cmp.config.window.bordered,
                     documentation = cmp.config.window.bordered,
@@ -65,13 +91,7 @@ return {
     {
         "neovim/nvim-lspconfig",
         config = function(_, opts)
-            require("lspconfig").zls.setup {
-                -- on_attach = require("completion").on_attach
-                -- on_attach = function(_, bufnr)
-                --     vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-                --     require("completion").on_attach()
-                -- end
-            }
+            require("lspconfig").zls.setup {}
         end,
         event = {
             "BufReadPre",

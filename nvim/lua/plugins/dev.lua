@@ -4,6 +4,25 @@ return {
     "tpope/vim-fugitive",
     -- https://github.com/tpope/vim-surround
     "tpope/vim-surround",
+    -- https://github.com/tpope/vim-dadbod
+    -- "tpope/vim-dadbod",
+    {
+        "kristijanhusak/vim-dadbod-ui",
+        dependencies = {
+	    { "tpope/vim-dispatch" },
+            { "tpope/vim-dadbod", lazy = true },
+            { "kristijanhusak/vim-dadbod-completion", ft = { "sql" }, lazy = true },
+        },
+        cmd = {
+            "DBUI",
+            "DBUIToggle",
+            "DBUIAddConnection",
+            "DBUIFindBuffer",
+        },
+        init = function()
+            vim.g.db_ui_use_nerd_fonts = 1
+        end,
+    },
     -- Git decorations
     -- https://github.com/lewis6991/gitsigns.nvim
     {

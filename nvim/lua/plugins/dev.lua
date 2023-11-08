@@ -4,13 +4,17 @@ return {
     "tpope/vim-fugitive",
     -- https://github.com/tpope/vim-surround
     "tpope/vim-surround",
-    -- https://github.com/tpope/vim-dadbod
-    -- "tpope/vim-dadbod",
+    -- https://github.com/kristijanhusak/vim-dadbod-ui
     {
         "kristijanhusak/vim-dadbod-ui",
         dependencies = {
 	    { "tpope/vim-dispatch" },
-            { "tpope/vim-dadbod", lazy = true },
+            {
+                "tpope/vim-dadbod",
+                -- Until problem with 'env' in Windows is solved
+                commit = "ee7e3bb5377d43cb31a101718dd0cfc09bb87d4b",
+                lazy = true
+            },
             { "kristijanhusak/vim-dadbod-completion", ft = { "sql" }, lazy = true },
         },
         cmd = {

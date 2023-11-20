@@ -77,6 +77,8 @@ return {
                             fallback()
                         end
                     end, { "i", "s" }),
+                    ["<C-n>"] = cmp.config.disable,
+                    ["<C-p>"] = cmp.config.disable,
                 }),
                 sources = cmp.config.sources({
                     -- TODO: this throws an error when writing code

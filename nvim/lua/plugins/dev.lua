@@ -8,7 +8,7 @@ return {
     {
         "kristijanhusak/vim-dadbod-ui",
         dependencies = {
-	    { "tpope/vim-dispatch" },
+            { "tpope/vim-dispatch" },
             {
                 "tpope/vim-dadbod",
                 -- Until problem with 'env' in Windows is solved
@@ -16,6 +16,7 @@ return {
                 lazy = true
             },
             { "kristijanhusak/vim-dadbod-completion", ft = { "sql" }, lazy = true },
+            { "vim-scripts/dbext.vim" },
         },
         cmd = {
             "DBUI",
@@ -84,6 +85,7 @@ return {
                     -- TODO: this throws an error when writing code
                     -- { name = "nvim_lsp" },
                     { name = "vsnip" },
+                    { name = "ctags" },
                 }),
                 window = {
                     completion = cmp.config.window.bordered,
@@ -102,6 +104,7 @@ return {
         dependencies = {
             "hrsh7th/cmp-vsnip",
             "hrsh7th/vim-vsnip",
+            "delphinus/cmp-ctags",
         },
     },
     {

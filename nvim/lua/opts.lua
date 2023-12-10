@@ -58,8 +58,8 @@ vim.api.nvim_set_option('updatetime', 300)
 -- Show autodiagnostic popup on cursor hover_range
 -- Goto previous / next diagnostic warning / error 
 -- Show inlay_hints more frequently 
+opt.signcolumn = "yes"
 vim.cmd([[
-    set signcolumn=yes
     autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
 ]])
 

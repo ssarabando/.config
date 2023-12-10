@@ -11,6 +11,9 @@ opt.scrolloff = 999              -- int:  Min num lines of context
 opt.signcolumn = "yes"           -- str:  Show the sign column
 vim.wo.wrap = false              -- bool: Don't wrap lines.
 
+--  [[ Clipboard ]]
+opt.clipboard = "unnamedplus"
+
 -- [[ Filetypes ]]
 opt.encoding = 'utf8'            -- str:  String encoding to use
 opt.fileencoding = 'utf8'        -- str:  File encoding to use

@@ -27,6 +27,7 @@ opt.ignorecase = true            -- bool: Ignore case in search patterns
 opt.smartcase = true             -- bool: Override ignorecase if search contains capitals
 opt.incsearch = true             -- bool: Use incremental search
 opt.hlsearch = false             -- bool: Highlight search matches
+opt.inccommand = "split"         -- str:  While substituting, show split with all lines being replaced
 
 -- [[ Whitespace ]]
 opt.expandtab = true             -- bool: Use spaces instead of tabs

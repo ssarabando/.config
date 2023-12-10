@@ -33,6 +33,7 @@ opt.expandtab = true             -- bool: Use spaces instead of tabs
 opt.shiftwidth = 4               -- num:  Size of an indent
 opt.softtabstop = 4              -- num:  Number of spaces tabs count for in insert mode
 opt.tabstop = 4                  -- num:  Number of spaces tabs count for
+opt.virtualedit = "block"        -- str:  Virtual edit only in block (C-V) mode
 
 -- [[ Splits ]]
 opt.splitright = true            -- bool: Place new window to right of current one

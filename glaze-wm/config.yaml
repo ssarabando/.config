@@ -133,12 +133,17 @@ window_rules:
     match_title: "[Pp]icture.in.[Pp]icture"
     match_class_name: "Chrome_WidgetWin_1|MozillaDialogClass"
 
-  - command: "ignore"
-    match_process_name: "mstsc"
-
   # Some applications (eg. Steam) have borders that extend past the normal border size.
   - command: "resize borders 0px -7px -7px -7px"
     match_process_name: "steam"
+
+  # Ignore the remote desktop client
+  - command: "ignore"
+    match_process_name: "mstsc"
+
+  # Float the MPC-HC media player
+  - command: "set floating"
+    match_process_name: "mpc-hc64"
 
 binding_modes:
   - name: "resize"
@@ -227,7 +232,7 @@ keybindings:
   # Launch CMD terminal (alternatively `exec wt` or `exec %ProgramFiles%/Git/git-bash.exe`
   # to start Windows Terminal and Git Bash respectively.
   - command: "exec wt"
-    binding: "Alt+Enter"
+    binding: "Alt+Ctrl+Enter"
 
   # Focus the workspace that last had focus.
   - command: "focus workspace recent"

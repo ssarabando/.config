@@ -137,14 +137,17 @@ window_rules:
   - command: "resize borders 0px -7px -7px -7px"
     match_process_name: "steam"
 
-  # Ignore the remote desktop client, Check Point Mobile VPN client, Visual Studio and
-  # all setup programs.
+  # Ignore the remote desktop client and the Check Point Mobile VPN client.
   - command: "ignore"
     match_process_name: "mstsc|TrGUI"
 
   # Float the MPC-HC media player and all setup programs.
   - command: "set floating"
-    match_process_name: "mpc-hc64|devenv|setup"
+    match_process_name: "mpc-hc64|setup"
+
+  # Always move VS to workspace 9.
+  - commands: {"move to workspace 9", "set height 100%", "set width 100%"}
+    match_title: "Visual Studio"
 
 binding_modes:
   - name: "resize"

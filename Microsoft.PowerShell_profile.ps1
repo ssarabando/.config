@@ -5,6 +5,11 @@ Function freespace {
 }
 Set-Alias -Name df -Value freespace
 
+Function vs22 {
+    Import-Module 'C:\Program Files\Microsoft Visual Studio\2022\Professional\Common7\Tools\Microsoft.VisualStudio.DevShell.dll'
+    Enter-VsDevShell -VsInstallPath "C:\Program Files\Microsoft Visual Studio\2022\Professional\"
+}
+
 # git
 
 Function git_checkout { git checkout $args }

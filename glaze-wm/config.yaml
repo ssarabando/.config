@@ -140,11 +140,11 @@ window_rules:
   # Ignore the remote desktop client, Check Point Mobile VPN client, Visual Studio and
   # all setup programs.
   - command: "ignore"
-    match_process_name: "mstsc|TrGUI|devenv|setup"
+    match_process_name: "mstsc|TrGUI|devenv"
 
-  # Float the MPC-HC media player
+  # Float the MPC-HC media player and all setup programs.
   - command: "set floating"
-    match_process_name: "mpc-hc64"
+    match_process_name: "mpc-hc64|setup"
 
 binding_modes:
   - name: "resize"

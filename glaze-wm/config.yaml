@@ -146,11 +146,8 @@ window_rules:
     match_process_name: "mpc-hc64|setup"
 
   # Always move VS to workspace 9.
-  - commands:
-    - "move to workspace 9"
-    - "set height 100%"
-    - "set width 100%"
-    match_title: "Visual Studio"
+  - commands: ["move to workspace 9", "focus workspace 9"]
+    match_process_name: "/devenv/"
 
 binding_modes:
   - name: "resize"

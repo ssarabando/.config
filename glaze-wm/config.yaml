@@ -137,9 +137,10 @@ window_rules:
   - command: "resize borders 0px -7px -7px -7px"
     match_process_name: "steam"
 
-  # Ignore the remote desktop client and the Check Point Mobile VPN client.
+  # Ignore the remote desktop client, the Check Point Mobile VPN client and
+  # the AnyDesk client.
   - command: "ignore"
-    match_process_name: "mstsc|TrGUI"
+    match_process_name: "mstsc|TrGUI|AnyDesk"
 
   # Float the MPC-HC media player and all setup programs.
   - command: "set floating"

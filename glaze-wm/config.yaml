@@ -137,14 +137,14 @@ window_rules:
   - command: "resize borders 0px -7px -7px -7px"
     match_process_name: "steam"
 
-  # Ignore the remote desktop client, the Check Point Mobile VPN client and
-  # the AnyDesk client.
+  # Ignore the remote desktop client.
   - command: "ignore"
-    match_process_name: "mstsc|TrGUI|AnyDesk"
+    match_process_name: "mstsc"
 
-  # Float the MPC-HC media player and all setup programs.
+  # Float the MPC-HC media player, Check Point VPN client, all setup programs
+  # and the AnyDesk client.
   - command: "set floating"
-    match_process_name: "mpc-hc64|setup"
+    match_process_name: "mpc-hc64|TrGUI|setup|AnyDesk"
 
   # Always move VS to workspace 9.
   - commands: ["move to workspace 9", "focus workspace 9"]

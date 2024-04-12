@@ -121,7 +121,7 @@ window_rules:
   # Task Manager requires admin privileges to manage and should be ignored unless running
   # the WM as admin.
   - command: "ignore"
-    match_process_name: "/Taskmgr|ScreenClippingHost/"
+    match_process_name: "/Taskmgr|ScreenClippingHost|The Troop/"
 
   # Launches system dialogs as floating by default (eg. File Explorer save/open dialog).
   - command: "set floating"
@@ -149,6 +149,11 @@ window_rules:
   # Always move VS to workspace 9.
   - commands: ["move to workspace 9", "focus workspace 9"]
     match_process_name: "/devenv/"
+
+  # Set nvim-qt (NeoVIM GUI) width so that it shows 80 columns when using
+  # Iosevka Nerd Font Mono (light) at 14pt.
+  - command: "set width 875px"
+    match_process_name: "nvim-qt"
 
 binding_modes:
   - name: "resize"

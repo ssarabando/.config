@@ -10,6 +10,8 @@ Function vs22 {
     Enter-VsDevShell -VsInstallPath "C:\Program Files\Microsoft Visual Studio\2022\Professional\"
 }
 
+Set-Alias -Name touch -Value Out-File
+
 # git
 
 Function git_checkout { git checkout $args }
@@ -27,12 +29,16 @@ Set-Alias -Name gln -Value git_log
 Function git_status { git status }
 Set-Alias -Name gs -Value git_status
 
+# Notepad++
+
 if (Test-Path "$env:ProgramFiles/Notepad++/notepad++.exe") {
     Function notepad_plus_plus {
         & "$env:ProgramFiles/Notepad++/notepad++.exe" $args
     }
     Set-Alias -Name npp -Value notepad_plus_plus
 }
+
+# Azure Data Studio
 
 if (Test-Path "$env:LocalAppData/Programs/Azure Data Studio/azuredatastudio.exe") {
     Function azure_data_studio {
@@ -41,7 +47,15 @@ if (Test-Path "$env:LocalAppData/Programs/Azure Data Studio/azuredatastudio.exe"
     Set-Alias -Name ads -Value azure_data_studio
 }
 
-Set-Alias -Name touch -Value Out-File
+# Komorebi
 
-# oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/atomic.omp.json" | Invoke-Expression
+$Env:KOMOREBI_CONFIG_HOME = "$Env:USERPROFILE\.config\komorebi"
+
+Function komorebi_start { komorebic start --whkd } 
+Set-Alias -Name kstart -Value komorebi_start
+
+Function komorebi_stop { komorebic stop --whkd }
+Set-Alias -Name kstop -Value komorebi_stop
+
 oh-my-posh init pwsh --config "$env:USERPROFILE\.config\ohmyposh\own-basedon-jandedobbeleer.omp.json" | Invoke-Expression
+

@@ -1,15 +1,6 @@
 - name: 1Password
   identifier:
     kind: Exe
-    id: Guitar Rig 7.exe
-    matching_strategy: Equals
-  float_identifiers:
-  - kind: Exe
-    id: Guitar Rig 7.exe
-    matching_strategy: Equals
-- name: 1Password
-  identifier:
-    kind: Exe
     id: 1Password.exe
     matching_strategy: Equals
   float_identifiers:
@@ -139,6 +130,17 @@
     matching_strategy: Equals
   options:
   - tray_and_multi_window
+- name: Check Point Mobile
+  identifier:
+    kind: Exe
+    id: TrGUI.exe
+    matching_strategy: Equals
+  options:
+  - tray_and_multi_window
+  float_identifiers:
+  - kind: Exe
+    id: TrGUI.exe
+    matching_strategy: Equals
 - name: CLion
   identifier:
     kind: Exe
@@ -456,6 +458,15 @@
   - kind: Exe
     id: GoogleDriveFS.exe
     matching_strategy: Equals
+- name: Guitar Rig 7
+  identifier:
+    kind: Exe
+    id: Guitar Rig 7.exe
+    matching_strategy: Equals
+  float_identifiers:
+  - kind: Exe
+    id: Guitar Rig 7.exe
+    matching_strategy: Equals
 - name: Honeyview
   identifier:
     kind: Class
@@ -625,6 +636,9 @@
   - kind: Class
     id: _WwB
     matching_strategy: Legacy
+  - kind: Class
+    id: MsoSplash
+    matching_strategy: Equals
 - name: Microsoft PC Manager
   identifier:
     kind: Exe
@@ -813,6 +827,18 @@
   identifier:
     kind: Exe
     id: PasswareKitForensic.exe
+    matching_strategy: Equals
+- name: PhpStorm
+  identifier:
+    kind: Exe
+    id: phpstorm64.exe
+    matching_strategy: Equals
+  options:
+  - object_name_change
+  - tray_and_multi_window
+  float_identifiers:
+  - kind: Class
+    id: SunAwtDialog
     matching_strategy: Equals
 - name: Playnite
   identifier:
@@ -1087,6 +1113,13 @@
     kind: Class
     id: vguiPopupWindow
     matching_strategy: Legacy
+  float_identifiers:
+  - - kind: Exe
+      id: steamwebhelper.exe
+      matching_strategy: Equals
+    - kind: Title
+      id: Steam
+      matching_strategy: DoesNotEqual
 - name: Steam Beta
   identifier:
     kind: Class
@@ -1349,6 +1382,15 @@
     matching_strategy: Equals
   options:
   - tray_and_multi_window
+- name: Zebar
+  identifier:
+    kind: Exe
+    id: Zebar.exe
+    matching_strategy: Equals
+  float_identifiers:
+  - kind: Exe
+    id: Zebar.exe
+    matching_strategy: Equals
 - name: Zoom
   identifier:
     kind: Exe
@@ -1357,6 +1399,15 @@
   float_identifiers:
   - kind: Exe
     id: Zoom.exe
+    matching_strategy: Equals
+- name: komorebi-gui
+  identifier:
+    kind: Exe
+    id: komorebi-gui.exe
+    matching_strategy: Equals
+  float_identifiers:
+  - kind: Exe
+    id: komorebi-gui.exe
     matching_strategy: Equals
 - name: mpv
   identifier:

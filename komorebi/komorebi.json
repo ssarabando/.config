@@ -7,8 +7,8 @@
   "default_container_padding": 1,
   "border_width": 1,
   "border_offset": -1,
-  "active_window_border": false,
-  "active_window_border_colours": {
+  "border": false,
+  "border_colours": {
     "single": "#42a5f5",
     "stack": "#00a542",
     "monocle": "#ff3399"
@@ -56,19 +56,5 @@
         }
       ]
     }
-  ],
-  "float_rules": [
-      {
-          "id": "TrGUI",
-          "kind": "Title",
-          "matching_strategy": "Equals"
-      }
-  ],
-  "tray_and_multi_window_applications": [
-      {
-          "id": "TrGUI.exe",
-          "kind": "Exe",
-          "matching_strategy": "Equals"
-      }
   ]
 }

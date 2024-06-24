@@ -5,6 +5,20 @@ Function freespace {
 }
 Set-Alias -Name df -Value freespace
 
+Function komorebi_start {
+    komorebic start --whkd
+}
+Function komorebi_stop {
+    komorebic stop --whkd
+}
+Function komorebi_reload {
+    komorebic fetch-asc
+    komorebic reload-configuration
+}
+Set-Alias -Name kstart -Value komorebi_start
+Set-Alias -Name kstop -Value komorebi_stop
+Set-Alias -Name kreload -Value komorebi_reload
+
 Function vs22 {
     Import-Module 'C:\Program Files\Microsoft Visual Studio\2022\Professional\Common7\Tools\Microsoft.VisualStudio.DevShell.dll'
     Enter-VsDevShell -VsInstallPath "C:\Program Files\Microsoft Visual Studio\2022\Professional\"

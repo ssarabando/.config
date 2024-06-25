@@ -56,5 +56,32 @@
         }
       ]
     }
+  ],
+  "float_rules": [
+    {
+      "id": "TrGUI.exe",
+      "kind": "Exe",
+      "matching_strategy": "Equals"
+    },
+    {
+      "id": "VbaWindow",
+      "kind": "Class",
+      "matching_strategy": "Equals"
+    },
+    {
+      "id": "wndclass_desked_gsk",
+      "kind": "Class",
+      "matching_strategy": "Equals"
+    },
+    {
+      "id": "DesignerWindow",
+      "kind": "Class",
+      "matching_strategy": "Equals"
+    },
+    {
+      "id": "F3 MinFrame",
+      "kind": "Class",
+      "matching_strategy": "StartsWith"
+    }
   ]
 }

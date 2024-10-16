@@ -8,6 +8,11 @@ local config = wezterm.config_builder()
 
 -- Color scheme:
 config.color_scheme = "Dracula (Official)"
+-- Fonts:
+config.font = wezterm.font_with_fallback({
+	-- "3270 Nerd Font",
+	"IosevkaTerm NF",
+})
 -- Default shell:
 config.default_prog = {
 	"pwsh.exe",

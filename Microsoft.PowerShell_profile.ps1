@@ -1,5 +1,13 @@
 ## utils
 
+function ffp {
+  param (
+    [string]$filename
+  )
+  $fn=$filename.Substring(2).Replace("``", "") # removes leading '.\' and '`'
+  ffplay -vf "subtitles=`'$fn`'" $fn
+}
+
 Function freespace {
     Get-CimInstance -ClassName Win32_LogicalDisk | Select-Object -Property DeviceID,@{'Name' = 'FreeSpace (GB)'; Expression= { [int]($_.FreeSpace / 1GB) }}
 }

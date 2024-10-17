@@ -14,8 +14,13 @@ Function freespace {
 Set-Alias -Name df -Value freespace
 
 Function vs22 {
-    Import-Module 'C:\Program Files\Microsoft Visual Studio\2022\Professional\Common7\Tools\Microsoft.VisualStudio.DevShell.dll'
-    Enter-VsDevShell -VsInstallPath "C:\Program Files\Microsoft Visual Studio\2022\Professional\"
+    $path = $null
+    Get-ChildItem -Path "$Env:ProgramFiles" -Filter 'Microsoft.VisualStudio.DevShell.dll' -Recurse -File -ErrorAction Ignore | % { $path = $_.FullName }
+    if ($path -eq $null) {
+        Get-ChildItem -Path "${env:ProgramFiles(x86)}" -Filter 'Microsoft.VisualStudio.DevShell.dll' -Recurse -File -ErrorAction Ignore | % { $path = $_.FullName }
+    }
+    Import-Module $path
+    Enter-VsDevShell 0af32636 -SkipAutomaticLocation -DevCmdArguments "-arch=x64 -host_arch=x64"
 }
 
 Set-Alias -Name touch -Value Out-File

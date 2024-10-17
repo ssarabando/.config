@@ -20,7 +20,10 @@ Function vs22 {
         Get-ChildItem -Path "${env:ProgramFiles(x86)}" -Filter 'Microsoft.VisualStudio.DevShell.dll' -Recurse -File -ErrorAction Ignore | % { $path = $_.FullName }
     }
     Import-Module $path
-    Enter-VsDevShell 0af32636 -SkipAutomaticLocation -DevCmdArguments "-arch=x64 -host_arch=x64"
+    $path = [System.IO.Path]::GetDirectoryName($path)
+    $path = [System.IO.Path]::GetDirectoryName($path) # removes the Tools subdirectory
+    $path = [System.IO.Path]::GetDirectoryName($path) # removes the Common7 subdirectory
+    Enter-VsDevShell -VsInstallPath "$path" -SkipAutomaticLocation -DevCmdArguments "-arch=x64 -host_arch=x64"
 }
 
 Set-Alias -Name touch -Value Out-File

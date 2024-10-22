@@ -15,9 +15,15 @@ Set-Alias -Name df -Value freespace
 
 Function vs22 {
     $path = $null
-    Get-ChildItem -Path "$Env:ProgramFiles" -Filter 'Microsoft.VisualStudio.DevShell.dll' -Recurse -File -ErrorAction Ignore | % { $path = $_.FullName }
-    if ($path -eq $null) {
-        Get-ChildItem -Path "${env:ProgramFiles(x86)}" -Filter 'Microsoft.VisualStudio.DevShell.dll' -Recurse -File -ErrorAction Ignore | % { $path = $_.FullName }
+    if (Test-Path "$env:USERPROFILE/.vsinstallpath") {
+        $path = Get-Content -Path "$env:USERPROFILE/.vsinstallpath" -TotalCount 1
+    }
+    else {
+        Get-ChildItem -Path "$Env:ProgramFiles" -Filter 'Microsoft.VisualStudio.DevShell.dll' -Recurse -File -ErrorAction Ignore | % { $path = $_.FullName }
+        if ($path -eq $null) {
+            Get-ChildItem -Path "${env:ProgramFiles(x86)}" -Filter 'Microsoft.VisualStudio.DevShell.dll' -Recurse -File -ErrorAction Ignore | % { $path = $_.FullName }
+        }
+        $path | Out-File "$env:USERPROFILE/.vsinstallpath"
     }
     Import-Module $path
     $path = [System.IO.Path]::GetDirectoryName($path)

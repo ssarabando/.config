@@ -21,6 +21,6 @@ config.default_prog = {
 	-- '&{Import-Module "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\Tools\\Microsoft.VisualStudio.DevShell.dll"; Enter-VsDevShell 0af32636 -SkipAutomaticLocation -DevCmdArguments "-arch=x64 -host_arch=x64" }',
 }
 -- Default current working directory
-config.default_cwd = wezterm.home_dir .. "/source/repos"
+config.default_cwd = wezterm.home_dir .. "/source"
 -- and finally, return the configuration to wezterm
 return config

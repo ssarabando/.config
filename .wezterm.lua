@@ -76,20 +76,38 @@ config.set_environment_variables = {}
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 	config.default_prog = { "pwsh.exe" }
+
 	table.insert(launch_menu, { label = "PowerShell", args = { "pwsh.exe", "-NoLogo" } })
 
-	-- Find installed visual studio version(s) and add their compilation
+	-- Find installed visual studio build tools' version(s) and add their compilation
 	-- environment command prompts to the menu
 	for _, vsvers in ipairs(wezterm.glob("Microsoft Visual Studio/20*", "C:/Program Files (x86)")) do
 		local year = vsvers:gsub("Microsoft Visual Studio/", "")
 		table.insert(launch_menu, {
-			label = "x64 Native Tools VS " .. year,
+			label = "x64 Native Tools Command Prompt for VS " .. year,
 			args = {
 				"cmd.exe",
 				"/k",
 				"C:/Program Files (x86)/" .. vsvers .. "/BuildTools/VC/Auxiliary/Build/vcvars64.bat",
 			},
 		})
+	end
+
+	-- Find installed visual studio version(s) and add their compilation
+	-- environment command prompts to the menu
+	for _, vsvers in ipairs(wezterm.glob("Microsoft Visual Studio/20*", "C:/Program Files")) do
+		local year = vsvers:gsub("Microsoft Visual Studio/", "")
+		for _, vsed in ipairs(wezterm.glob("*", "C:/Program Files/Microsoft Visual Studio/" .. year)) do
+			table.insert(launch_menu, {
+				label = "Developer PowerShell for VS " .. year,
+				args = {
+					"pwsh.exe",
+					"-noe",
+					"-c",
+					"& 'C:/Program Files/" .. vsvers .. "/" .. vsed .. "/Common7/Tools/Launch-VsDevShell.ps1'",
+				},
+			})
+		end
 	end
 end
 

@@ -68,6 +68,8 @@ config.keys = {
 	{ key = "+", mods = "SHIFT|CTRL", action = "IncreaseFontSize" },
 	{ key = "-", mods = "SHIFT|CTRL", action = "DecreaseFontSize" },
 	{ key = "0", mods = "SHIFT|CTRL", action = "ResetFontSize" },
+
+	{ key = "p", mods = "SHIFT|CTRL", action = wezterm.action.ActivateCommandPalette },
 }
 -- Set the leader key
 config.leader = { key = "a", mods = "CTRL" }

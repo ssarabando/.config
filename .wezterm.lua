@@ -23,8 +23,7 @@ local function file_exists(path)
 	end
 end
 
--- This will hold the configuration.
-local config = wezterm.config_builder()
+-- This will hold the launch menu:
 local launch_menu = {}
 
 -- This is where you actually apply your config choices
@@ -40,7 +39,7 @@ config.font = wezterm.font_with_fallback({
 	-- "3270 Nerd Font",
 	"IosevkaTerm NF",
 })
--- ?
+-- Make it easier to see which pane is active by decorating the inactive ones:
 config.inactive_pane_hsb = {
 	hue = 1.0,
 	saturation = 1.0,
@@ -83,10 +82,14 @@ config.keys = {
 
 	{ key = "p", mods = "SHIFT|CTRL", action = wezterm.action.ActivateCommandPalette },
 }
+-- Launch menu
+config.launch_menu = launch_menu
 -- Set the leader key
 config.leader = { key = "a", mods = "CTRL" }
 -- Do not set environment variables
 config.set_environment_variables = {}
+-- Hide the titlebar
+config.window_decorations = "RESIZE"
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 	config.default_prog = { "pwsh.exe" }
@@ -124,8 +127,6 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 		end
 	end
 end
-
-config.launch_menu = launch_menu
 
 -- and finally, return the configuration to wezterm
 return config

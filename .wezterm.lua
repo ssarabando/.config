@@ -37,7 +37,7 @@ config.disable_default_key_bindings = true
 -- Fonts:
 config.font = wezterm.font_with_fallback({
 	-- "3270 Nerd Font",
-	"IosevkaTerm NF",
+	-- "IosevkaTerm NF",
 })
 -- Make it easier to see which pane is active by decorating the inactive ones:
 config.inactive_pane_hsb = {

@@ -63,14 +63,15 @@ if (Test-Path "$env:ProgramFiles/Notepad++/notepad++.exe") {
     Set-Alias -Name npp -Value notepad_plus_plus
 }
 
-# Azure Data Studio
+## Azure Data Studio
+#
+#if (Test-Path "$env:LocalAppData/Programs/Azure Data Studio/azuredatastudio.exe") {
+#    Function azure_data_studio {
+#        & "C:\Users\ssarabando\AppData\Local\Programs\Azure Data Studio\azuredatastudio.exe" | Out-Null
+#    }
+#    Set-Alias -Name ads -Value azure_data_studio
+#}
 
-if (Test-Path "$env:LocalAppData/Programs/Azure Data Studio/azuredatastudio.exe") {
-    Function azure_data_studio {
-        & "C:\Users\ssarabando\AppData\Local\Programs\Azure Data Studio\azuredatastudio.exe" | Out-Null
-    }
-    Set-Alias -Name ads -Value azure_data_studio
-}
-
-oh-my-posh init pwsh --config "$env:USERPROFILE\.config\ohmyposh\own-basedon-jandedobbeleer.omp.json" | Invoke-Expression
+#oh-my-posh init pwsh --config "$env:USERPROFILE\.config\ohmyposh\own-basedon-jandedobbeleer.omp.json" | Invoke-Expression
+oh-my-posh init pwsh | Invoke-Expression
 
